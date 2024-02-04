@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  redis:
+    image: redis:6.2-alpine
+    container_name: uptime-redis
+    restart: always
+    ports:
+      - "6739:6739"
+    command: redis-server --save 20 1 --loglevel debug --requirepass eYVX7EwVmmxKPCDmwMty
+    volumes:
+      - cache:/data
+
+volumes:
+  cache:
